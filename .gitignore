@@ -2,6 +2,7 @@
 /posts-microservice/client/node_modules
 /posts-microservice/posts/node_modules
 /posts-microservice/comments/node_modules
+/posts-microservice/event-bus/node_modules
 
 
 # dependencies
