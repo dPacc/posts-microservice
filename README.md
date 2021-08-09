@@ -16,3 +16,8 @@ It is a event based streaming architecture
 - Async: services communicate with each other using events
 
 ![CommStrategy](./commStrategy.png)
+
+## Event Bus
+
+- There are many different open-source event bus available: RabbitMQ, Kafka, NATS
+- Receives events, publishes them to listeners
