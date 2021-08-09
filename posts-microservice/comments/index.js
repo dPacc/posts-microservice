@@ -12,7 +12,7 @@ app.use(cors());
 const commentsByPostId = {};
 
 app.get("/posts/:id/comments", (req, res) => {
-  res.json(commentsByPostId[req.params.id] || []);
+  res.send(commentsByPostId[req.params.id] || []);
 });
 
 app.post("/posts/:id/comments", async (req, res) => {
@@ -39,7 +39,7 @@ app.post("/posts/:id/comments", async (req, res) => {
     },
   });
 
-  res.json(comments);
+  res.send(comments);
 });
 
 app.post("/events", (req, res) => {

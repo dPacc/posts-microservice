@@ -12,7 +12,7 @@ app.use(cors());
 const posts = {};
 
 app.get("/posts", (req, res) => {
-  res.json(posts);
+  res.send(posts);
 });
 
 app.post("/posts", async (req, res) => {
@@ -34,7 +34,7 @@ app.post("/posts", async (req, res) => {
     },
   });
 
-  res.json(posts[id]);
+  res.send(posts[id]);
 });
 
 app.post("/events", (req, res) => {
