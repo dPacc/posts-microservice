@@ -1,11 +1,12 @@
 const express = require("express");
 const { randomBytes } = require("crypto");
+const cors = require("cors");
 
 const app = express();
 
 // Middlewares
 app.use(express.json());
-
+app.use(cors());
 // Store posts in memory instead of a database
 const commentsByPostId = {};
 
