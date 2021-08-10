@@ -4,6 +4,7 @@
 /posts-microservice/comments/node_modules
 /posts-microservice/event-bus/node_modules
 /posts-microservice/query/node_modules
+/posts-microservice/moderation/node_modules
 
 
 # dependencies
