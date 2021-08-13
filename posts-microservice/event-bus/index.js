@@ -18,7 +18,6 @@ app.post("/events", (req, res) => {
   res.send({ status: "OK" });
 });
 
-// Run the server
 app.listen(4005, () => {
-  console.log("Server running on port 4005");
+  console.log("Listening on 4005");
 });
