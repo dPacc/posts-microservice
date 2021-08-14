@@ -120,6 +120,14 @@ We do not set up the port forwarding in the Dockerfile configuration. It is a ru
 
 ![network](./images/portForward.png)
 
+### Specifying a Working Directory
+
+If we don't specify a working directory, the folders inside our app might conflict with default folder names in the image root directory. For example, "lib".
+
+To solve this problem, we can add the `WORKDIR` command in the Dockerfile
+
+![workDir](./images/workdir.png)
+
 ## Know more
 
 - When you install the docker client on Windows or MacOS, it actually **installs linux in a VM** and runs it on that
