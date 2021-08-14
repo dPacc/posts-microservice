@@ -128,6 +128,14 @@ To solve this problem, we can add the `WORKDIR` command in the Dockerfile
 
 ![workDir](./images/workdir.png)
 
+### Rebuilds
+
+When we make any **changes to the server file** in our app, those changes wont automatically reflect unless we **rebuild the image**.
+
+This process is inefficient and there certainly is a better way of doing it.
+
+In the Dockerfile, COPY the package.json and RUN npm install, then COPY ./ ./ everything else.
+
 ## Know more
 
 - When you install the docker client on Windows or MacOS, it actually **installs linux in a VM** and runs it on that
