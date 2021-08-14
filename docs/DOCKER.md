@@ -90,6 +90,36 @@ Once Dockerfile build completes, the next time you run the build command, it wou
 
 Whenever you make a change to the Dockerfile, it will **rebuild every command below that new change**. So the **order of commands** matter in the Dockerfile
 
+### Tagging an image
+
+Running the image using its ID is not so efficient. We can tag the image while running the build command - `docker build -t dPacman/redis:latest .`
+
+![DBP](./images/ImageTag.png)
+
+Naming convention of the tag is as below
+
+![DBP](./images/TagConv.png)
+
+### Copying Build Files
+
+- To copy build files from your machine into the docker container, add this inside the Dockerfile: `COPY ./ ./`
+
+### Container Port Forwarding
+
+Let's assume that we are running our custom build image of a express server on port 8080. If we were to try accessing it on the browser, we wont be able to.
+
+In order to **route any request coming from outside the containers network**, we have to set up an explicit **port mapping or forwarding**.
+
+![network](./images/networkNode.png)
+
+**NOTE** - This is only for incoming requests to the container, the container can by default make requests to the outside world
+
+We do not set up the port forwarding in the Dockerfile configuration. It is a run time constraint.
+
+- The command is: `docker run -p 8080 : 8080 <image-id>`
+
+![network](./images/portForward.png)
+
 ## Know more
 
 - When you install the docker client on Windows or MacOS, it actually **installs linux in a VM** and runs it on that
