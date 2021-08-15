@@ -19,3 +19,7 @@ Kubernetes is a tool for running a bunch of different containers. We give it som
 ### Configuring the cluster
 
 ![Config](./images/configFiles.png)
+
+### YAML File Breakdown
+
+![Config](./images/config.png)
