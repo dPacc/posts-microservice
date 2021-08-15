@@ -15,3 +15,7 @@ Kubernetes is a tool for running a bunch of different containers. We give it som
 ### Terminologies
 
 ![term](./images/terminologies.png)
+
+### Configuring the cluster
+
+![Config](./images/configFiles.png)
