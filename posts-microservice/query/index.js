@@ -13,20 +13,21 @@ const posts = {};
 const handleEvent = (type, data) => {
   if (type === "PostCreated") {
     const { id, title } = data;
+
     posts[id] = { id, title, comments: [] };
   }
 
   if (type === "CommentCreated") {
-    const { id, postId, content, status } = data;
-    const post = posts[postId];
+    const { id, content, postId, status } = data;
 
+    const post = posts[postId];
     post.comments.push({ id, content, status });
   }
 
   if (type === "CommentUpdated") {
-    const { id, postId, content, status } = data;
-    const post = posts[postId];
+    const { id, content, postId, status } = data;
 
+    const post = posts[postId];
     const comment = post.comments.find((comment) => {
       return comment.id === id;
     });
@@ -36,9 +37,8 @@ const handleEvent = (type, data) => {
   }
 };
 
-//  Routes
 app.get("/posts", (req, res) => {
-  res.json(posts);
+  res.send(posts);
 });
 
 app.post("/events", (req, res) => {
@@ -46,7 +46,6 @@ app.post("/events", (req, res) => {
 
   handleEvent(type, data);
 
-  console.log(posts);
   res.send({});
 });
 
