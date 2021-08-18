@@ -77,3 +77,42 @@ Now that we are familiar with the configurations and deployment, how do we **acc
 A service is another **kind of object in kubernetes**. We create services using config files. We are going to **use services to set up communication between all of the different pods (Cluster IP)**, or to **get access to a pod from the outside of our cluster (if dev ? Node Port : Load Balancer)**.
 
 ![serviceTypes](./images/serviceTypes.png)
+
+## Load Balancer
+
+For every deployment we create, we could create a NodePort service to expose the end-point to the client. But, that's **not the best way to do it** as we would expose the IP of our containers.
+
+![exposeOne](./images/exposeOne.png)
+
+A better way would be to use a **Load Balancer Service**.
+
+![exposeTwo](./images/exposeTwo.png)
+
+#### Load Balancer Terminologies
+
+![lbTerm](./images/lbTerm.png)
+
+![lbIngress](./images/lbIngress.png)
+
+#### Installing Ingress-Nginx
+
+Refer the URL: <https://kubernetes.github.io/ingress-nginx/deploy/>
+
+- To enable Ingress-Nginx on Minikube - `minikube addons enable ingress
+
+- To verify installation - `kubectl get pods -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx --watch`
+
+Now we need to teach the Ingress controller some routing rules on how to take appropriate requests and send them to the appropriate pods.
+
+![ingressRules](./images/ingressRules.png)
+
+In the `ingress-srv.yaml`, under **spec**, we defined a **host**. We can have multiple domains within each Kubernetes cluster and the host property defines it.
+
+When we are developing, lets say if the host was posts.com, we would want to trick our computer to route to the cluster posts.com and not the actual posts.com. To do this, we need to modify out `/etc/hosts` file on Linux.
+
+In the `/etc/hosts` file add the following -
+`{Output of minikube ip} posts.com`
+
+Now, if you visit the posts.com on your browser, it will open our posts service instead. Behind the scenes, ingress-nginx is going to the take this request and route it to the appropriate service and the service will route it to the appropriate pod.
+
+**NOTE** - What we did here by modifying the hosts file is appropriate only for a dev environment. When we actually deploy it, we dont have to make any actual changes to any hosts file, we will be connecting to the real posts.com which will connect it to the kubernetes cluster.
