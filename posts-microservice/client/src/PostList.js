@@ -8,7 +8,7 @@ const PostList = () => {
 
   async function fetchPosts() {
     await axios
-      .get("http://localhost:4002/posts")
+      .get("http://posts.com/posts")
       .then((response) => {
         setPosts(response.data);
       })
