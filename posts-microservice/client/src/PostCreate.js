@@ -7,7 +7,7 @@ const PostCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://posts.com/posts", { title })
+      .post("http://posts.com/posts/create", { title })
       .then((res) => {
         console.log(res.data);
       })
