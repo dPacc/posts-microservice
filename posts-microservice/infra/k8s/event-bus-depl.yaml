@@ -15,6 +15,7 @@ spec:
       containers:
       - name: event-bus
         image: dpac9525/event-bus
+        imagePullPolicy: Always
 ---
 # Cluster IP Config
 apiVersion: v1
