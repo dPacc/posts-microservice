@@ -15,7 +15,7 @@ spec:
       containers:
       - name: comments
         image: dpac9525/comments
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
 ---
 # Cluster IP Config
 apiVersion: v1

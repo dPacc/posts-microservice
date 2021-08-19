@@ -15,7 +15,7 @@ spec:
       containers:
       - name: moderation
         image: dpac9525/moderation
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
 ---
 # Cluster IP Config
 apiVersion: v1

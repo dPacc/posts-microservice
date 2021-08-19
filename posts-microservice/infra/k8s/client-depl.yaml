@@ -15,7 +15,7 @@ spec:
       containers:
       - name: client
         image: dpac9525/client
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
 ---
 # Cluster IP Config
 apiVersion: v1

@@ -116,3 +116,15 @@ In the `/etc/hosts` file add the following -
 Now, if you visit the posts.com on your browser, it will open our posts service instead. Behind the scenes, ingress-nginx is going to the take this request and route it to the appropriate service and the service will route it to the appropriate pod.
 
 **NOTE** - What we did here by modifying the hosts file is appropriate only for a dev environment. When we actually deploy it, we dont have to make any actual changes to any hosts file, we will be connecting to the real posts.com which will connect it to the kubernetes cluster.
+
+## Skaffold
+
+Any time we make change to the code, we need to rebuild the image, push it to docker hub and then restart the deployment. This becomes really cumbersome when we have a lot of services running. To ease this process, we use a library called **Skaffold**.
+
+Follow this URL and install it: <https://skaffold.dev/docs/quickstart/>
+
+Once it's installed, we are going to write yet another config file. This config file will tell skaffold how to manage all the different sub projects in the cluster.
+
+**NOTE**: Skaffold is a tool that runs outside the cluster
+
+- To apply the skaffold config, in the file dir: `skaffold dev`

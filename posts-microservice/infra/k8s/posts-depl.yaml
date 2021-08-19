@@ -15,7 +15,7 @@ spec:
       containers:
       - name: posts
         image: dpac9525/posts
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
 ---
 # Cluster IP Config
 apiVersion: v1

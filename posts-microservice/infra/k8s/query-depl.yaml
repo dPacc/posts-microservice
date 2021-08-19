@@ -15,7 +15,7 @@ spec:
       containers:
       - name: query
         image: dpac9525/query
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
 ---
 # Cluster IP Config
 apiVersion: v1
